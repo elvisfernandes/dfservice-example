@@ -8,9 +8,11 @@ To contribute to the ng2-dfservice module please refer to [its own repository](h
 
 ## How to run this example
 1 - Clone this repository
+
     git clone git@github.com:elvisfernandes/dfservice-example.git
 
 2 - Install dependencies
+
     npm install
 
 3 - Serve it locally
