@@ -1,0 +1,8 @@
+* { 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table, table thead th, table tbody tr td  {
+    border: 1px solid #CCC;
+    padding: 10px;
+}
