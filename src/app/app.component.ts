@@ -12,7 +12,7 @@ export class AppComponent {
   listEvents = [];
 
   constructor( private dfservice:DFService ) {
-    this.dfservice.get( new DFResource('events', DFService.TABLE, 'events') )
+    this.dfservice.get( new DFResource('events', DFService.RESOURCE_TABLE, 'events') )
       .forEach( next => {
         this.listEvents = next.json().resource;
       });
