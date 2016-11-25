@@ -5,5 +5,5 @@ export class EventsDataStore extends DFDataStore {
 
     dfresource:DFResource = new DFResource('events', DFService.RESOURCE_TABLE, 'events');
 
-    constructor( @Inject(DFService) private dfs: DFService ) { super(dfs); }
+    constructor( private dfs: DFService ) { super(dfs); }
 }
