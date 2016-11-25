@@ -1,9 +1,9 @@
-import { DFResource, DFService, DFResourceListInterface } from 'ng2-dfservice';
+import { DFResource, DFService } from 'ng2-dfservice';
 
-export class DFResources implements DFResourceListInterface {
+export class DFResources {
 
     public tables = {
-        events: new DFResource('events', DFService.RESOURCE_TABLE, 'events')
+        
     };
 
     public procs:any = {

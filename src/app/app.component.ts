@@ -1,5 +1,5 @@
+import { EventsDataStore } from './../datastores/events.datastore';
 import { Component } from '@angular/core';
-
 import { DFService, DFResource } from 'ng2-dfservice';
 
 @Component({
@@ -10,11 +10,17 @@ import { DFService, DFResource } from 'ng2-dfservice';
 export class AppComponent {
 
   listEvents = [];
+  txt = '';
+  private dfstore:EventsDataStore;
 
   constructor( private dfservice:DFService ) {
-    this.dfservice.get( this.dfservice.tables.events )
-      .forEach( next => {
-        this.listEvents = next.json().resource;
-      });
+    this.dfstore = new EventsDataStore(this.dfservice);
+    this.dfstore.items.subscribe( (next) => {
+      console.log(next);
+    });
+  }
+
+  testecarregar() {
+    this.dfstore.load();
   }
 }
