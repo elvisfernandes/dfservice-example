@@ -1,6 +1,3 @@
-<p>Texto: {{txt}}</p>
-
-<button (click)='testecarregar()'>Load</button>
 <table>
   <thead>
     <th>ID</th>
@@ -9,7 +6,7 @@
     <th>Description</th>
   </thead>
   <tbody>
-    <tr *ngFor="let event of listEvents">
+    <tr *ngFor="let event of dfstore.items | async">
       <td>{{event.id}}</td>
       <td>{{event.title}}</td>
       <td>{{event.city}}</td>

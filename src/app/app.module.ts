@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { environment } from '../environments/environment';
-import { DFResources } from './dfresources';
 
-import { DFService, DFResource } from 'ng2-dfservice';
+import { DFService } from 'ng2-dfservice';
+import { APP_DATASTORES } from './appdatastores';
 
 import { AppComponent } from './app.component';
 
@@ -21,6 +21,7 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     DFService,
+    APP_DATASTORES,
     { provide: DFService.API_URL, useValue: environment.df2_url },
     { provide: DFService.API_KEY, useValue: environment.df2_api_key }
   ],

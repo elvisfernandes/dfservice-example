@@ -1,8 +1,9 @@
-import { DFDataStore, DFService } from 'ng2-dfservice';
+import { Inject } from '@angular/core';
+import { DFDataStore, DFService, DFResource } from 'ng2-dfservice';
 
 export class EventsDataStore extends DFDataStore {
-    
-    constructor( private dfs: DFService ) {
-        super(dfs);
-    }
+
+    dfresource:DFResource = new DFResource('events', DFService.RESOURCE_TABLE, 'events');
+
+    constructor( @Inject(DFService) private dfs: DFService ) { super(dfs); }
 }

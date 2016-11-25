@@ -1,5 +1,5 @@
 import { EventsDataStore } from './../datastores/events.datastore';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DFService, DFResource } from 'ng2-dfservice';
 
 @Component({
@@ -7,20 +7,11 @@ import { DFService, DFResource } from 'ng2-dfservice';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  listEvents = [];
-  txt = '';
-  private dfstore:EventsDataStore;
+  constructor( private dfstore:EventsDataStore ) {}
 
-  constructor( private dfservice:DFService ) {
-    this.dfstore = new EventsDataStore(this.dfservice);
-    this.dfstore.items.subscribe( (next) => {
-      console.log(next);
-    });
-  }
-
-  testecarregar() {
-    this.dfstore.load();
+  ngOnInit() {
+    this.dfstore.loadInitialData();
   }
 }
