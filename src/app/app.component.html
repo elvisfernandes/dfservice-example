@@ -1,16 +1,38 @@
+<div>
+  <h2>New element</h2>
+  <input type="text" [(ngModel)]="newEvent.title" placeholder="New event title"><br />
+  <input type="text" [(ngModel)]="newEvent.city" placeholder="New event city"><br />
+  <input type="text" [(ngModel)]="newEvent.description" placeholder="New event description"><br />
+  <button (click)='create()'>Create</button>
+</div>
+
+<hr>
+
 <table>
   <thead>
     <th>ID</th>
     <th>Title</th>
     <th>City</th>
     <th>Description</th>
+    <th>Action</th>
   </thead>
   <tbody>
     <tr *ngFor="let event of dfstore.items | async">
-      <td>{{event.id}}</td>
-      <td>{{event.title}}</td>
-      <td>{{event.city}}</td>
-      <td>{{event.description}}</td>
+      <td><input type="text" [(ngModel)]="event.id"></td>
+      <td><input type="text" [(ngModel)]="event.title"></td>
+      <td><input type="text" [(ngModel)]="event.city"></td>
+      <td><input type="text" [(ngModel)]="event.description"></td>
+      <td>
+        <button (click)='delete(event.id)'>Delete</button>
+        <button (click)='update(event)'>Update</button>
+      </td>
     </tr>
   </tbody>
 </table>
+
+<hr>
+
+<h2>This is what we have in dfstore so far:</h2>
+<pre>
+{{dfstore.items | async | json}}
+</pre>
