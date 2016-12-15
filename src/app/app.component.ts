@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   newEvent:EventModel = new EventModel();
 
-  constructor( private dfstore:EventsDataStore ) {
+  constructor( private dfstore:EventsDataStore, private dfservice:DFService ) {
     this.newEvent.title = "New event title";
     this.newEvent.city = "New event city";
     this.newEvent.description = "New event description";
@@ -40,5 +40,23 @@ export class AppComponent implements OnInit {
 
   update( event:EventModel ) {
     this.dfstore.update(event);
+  }
+
+  refresh( ) {
+    this.dfstore.reload();
+  }
+
+  /*
+  Login / logout functions
+   */
+  login( email:string, password:string ) {
+    this.dfservice.login(email, password)
+      .subscribe( (next) => {
+        console.log(next);
+      });
+  }
+
+  logout() {
+    this.dfservice.logout();
   }
 }

@@ -6,3 +6,16 @@ table, table thead th, table tbody tr td  {
     border: 1px solid #CCC;
     padding: 10px;
 }
+
+.container {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.container_right {
+    margin-left: 10px;
+}
+
+.small {
+    font-size: 10px;
+}
